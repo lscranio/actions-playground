@@ -1,0 +1,35 @@
+# This workflow will do a clean installation of node dependencies, cache/restore them, build the source code and run tests across different versions of node
+# For more information see: https://docs.github.com/en/actions/automating-builds-and-tests/building-and-testing-nodejs
+
+name: Node.js CI
+
+on:
+  push:
+
+env:
+  VAR_WORKFLOW: 'variavel nível workflow'
+  
+  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    env:
+      VAR_JOB: 'variavel nivel job'
+      
+    steps:
+    - uses: actions/checkout@v3
+    - name: Use Node.js 14
+      uses: actions/setup-node@v3
+      with:
+        node-version: 14.x
+        cache: 'npm'
+    
+    - run: echo 'Variável de workflow ${{ env.VAR_WORKFLOW }}'
+    - run: echo 'Variável do job ${{ env.VAR_JOB }}'
+    
+  job2:
+    runs-on: ubuntu-latest
+    
+    steps:
+      - run: echo 'Variável de workflow ${{ env.VAR_WORKFLOW }}'
+      - run: echo 'Variável do job ${{ env.VAR_JOB }}'
