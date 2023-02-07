@@ -11,3 +11,10 @@ jobs:
     steps:
       - name: Checkout repository
         uses: actions/checkout@v3.3.0
+
+      - name: Upload a Build Artifact
+        uses: actions/upload-artifact@v3.1.2
+        with:
+          name: repositorio_do_luciano
+          path: .
+          retention-days: 15
